@@ -9,14 +9,83 @@
 <body>
   <h1>Documentation for <strong>Movie API</strong></h1>
   <div>
-    <h6>About</h6>
-    <p>Movie API will allow users to access a large list of movies in many ways, such as:</p>
-    <ul>
-      <li>By genre</li>
-      <li>Actors</li>
-      <li>Year of release</li>
-      <li>And more...</li>
-    </ul>
+    <h4>URL Endpoints</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Request</th>
+          <th>URL</th>
+          <th>HTTP Method</th>
+          <th>Request Body Data Format</th>
+          <th>Response Body Data Format</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Return all movies</td>
+          <td>/movies</td>
+          <td><span class="get">GET</span></td>
+          <td>None</td>
+          <td>A JSON object holding data about all movies</td>
+        </tr>
+        <tr>
+          <td>Return data (description, genre, director, etc.) about a single movie by title</td>
+          <td>/movies/<span class="param">:movieTitle</span></td>
+          <td><span class="get">GET</span></td>
+          <td>None</td>
+          <td>A JSON object holding data about the movie</td>
+        </tr>
+        <tr>
+          <td>Return data about a genre (description) by name/title</td>
+          <td>/movies/genre/<span class="param">:genreName</span></td>
+          <td><span class="get">GET</span></td>
+          <td>None</td>
+          <td>A JSON object holding data about the genre</td>
+        </tr>
+        <tr>
+          <td>Return data about a director (bio, birth year, death year) by name</td>
+          <td>/movies/directors/<span class="param">:directorName</span></td>
+          <td><span class="get">GET</span></td>
+          <td>None</td>
+          <td>A JSON object holding data about the director</td>
+        </tr>
+        <tr>
+          <td>Allow new users to register</td>
+          <td>/users</td>
+          <td><span class="post">GET</span></td>
+          <td>A JSON object request from the client</td>
+          <td>A JSON object of the new user</td>
+        </tr>
+        <tr>
+          <td>Allow users to update their user info (username)</td>
+          <td>/users/<span class="param">:id</span></td>
+          <td><span class="put">PUT</span></td>
+          <td>A JSON object with updated values for a user</td>
+          <td>A JSON object of the updated user</td>
+        </tr>
+        <tr>
+          <td>Allow users to add a movie to their list of favorites</td>
+          <td>/users/<span class="param">:id</span>/<span class="param">:movieTitle</span></td>
+          <td><span class="post">POST</span></td>
+          <td>A JSON object of a user and the movie they want added to their favorites</td>
+          <td>A message that the movie has been successfully added</td>
+        </tr>
+        <tr>
+          <td>Allow users to remove a movie from their list of favorites</td>
+          <td>/users/<span class="param">:id</span>/<span class="param">:movieTitle</span></td>
+          <td><span class="delete">DELETE</span></td>
+          <td>A JSON object of a user and the movie they want to remove from their favorites</td>
+          <td>A message that the movie has been successfully removed</td>
+        </tr>
+        <tr>
+          <td>Allow users to deregister</td>
+          <td>/users/<span class="param">:id</span></td>
+          <td><span class="delete">DELETE</span></td>
+          <td>A JSON object of a user by that includes their id</td>
+          <td>A message that the user has been successfully deleted</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>

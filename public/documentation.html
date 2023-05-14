@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movie API | Documentation</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
   <h1>Documentation for <strong>Movie API</strong></h1>
@@ -21,68 +22,259 @@
         </tr>
       </thead>
       <tbody>
+        <!-- MOVIES -->
         <tr>
-          <td>Return all movies</td>
-          <td>/movies</td>
-          <td><span class="get">GET</span></td>
-          <td>None</td>
-          <td>A JSON object holding data about all movies</td>
+          <td class="pad-text">Return all movies</td>
+          <td class="pad-text"><code>/movies</code></td>
+          <td class="pad-text center"><code class="http-method"><span class="get">GET</span></code></td>
+          <td class="pad-text italic center">None</td>
+          <td>
+            <pre>
+              <code>
+                <span class="bracket">[</span>
+                  &nbsp;&nbsp;&nbsp;<span class="bracket">{</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"_id"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"Actors"</span><span class="operator">:</span>&nbsp;<span class="arr"><span class="bracket">[</span>&nbsp;<span class="ref-id">Reference ID</span>&nbsp;<span class="bracket">]</span></span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"Title"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"Description"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"Genre"</span><span class="operator">:</span>&nbsp;<span class="ref-id">Reference ID</span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"Directors"</span><span class="operator">:</span>&nbsp;<span class="arr"><span class="bracket">[</span>&nbsp;<span class="ref-id">Reference ID</span>&nbsp;<span class="bracket">]</span></span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"ImagePath"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"Featured"</span><span class="operator">:</span>&nbsp;<span class="bool">Boolean</span>
+                  &nbsp;&nbsp;&nbsp;<span class="bracket">}</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="comma">...</span>
+                <span class="bracket">]</span>
+              </code>
+            </pre>
+          </td>
         </tr>
         <tr>
-          <td>Return data (description, genre, director, etc.) about a single movie by title</td>
-          <td>/movies/<span class="param">:movieTitle</span></td>
-          <td><span class="get">GET</span></td>
-          <td>None</td>
-          <td>A JSON object holding data about the movie</td>
+          <td class="pad-text">Return data (description, genre, director, etc.) about a single movie by title</td>
+          <td class="pad-text"><code>/movies/<span class="param">:Title</span></code></td>
+          <td class="pad-text center"><code class="http-method"><span class="get">GET</span></code></td>
+          <td class="pad-text italic center">None</td>
+          <td>
+            <pre>
+              <code>
+                <span class="bracket">{</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"_id"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Actors"</span><span class="operator">:</span>&nbsp;<span class="arr"><span class="bracket">[</span>&nbsp;<span class="ref-id">Reference ID</span>&nbsp;<span class="bracket">]</span></span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Title"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Description"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Genre"</span><span class="operator">:</span>&nbsp;<span class="ref-id">Reference ID</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Directors"</span><span class="operator">:</span>&nbsp;<span class="arr"><span class="bracket">[</span>&nbsp;<span class="ref-id">Reference ID</span>&nbsp;<span class="bracket">]</span></span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"ImagePath"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Featured"</span><span class="operator">:</span>&nbsp;<span class="bool">Boolean</span>
+                <span class="bracket">}</span>
+              </code>
+            </pre>
+          </td>
+        </tr>
+        <!-- GENRES -->
+        <tr>
+          <td class="pad-text">Return all genres</td>
+          <td class="pad-text"><code>/genres</code></td>
+          <td class="pad-text center"><code class="http-method"><span class="get">GET</span></code></td>
+          <td class="pad-text italic center">None</td>
+          <td>
+            <pre>
+              <code>
+                <span class="bracket">[</span>
+                  &nbsp;&nbsp;&nbsp;<span class="bracket">{</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"_id"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"Name"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"Description"</span><span class="operator">:</span>&nbsp;<span class="string">String</span>
+                  &nbsp;&nbsp;&nbsp;<span class="bracket">}</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="comma">...</span>
+                <span class="bracket">]</span>
+              </code>
+            </pre>
+          </td>
         </tr>
         <tr>
-          <td>Return data about a genre (description) by name/title</td>
-          <td>/movies/genre/<span class="param">:genreName</span></td>
-          <td><span class="get">GET</span></td>
-          <td>None</td>
-          <td>A JSON object holding data about the genre</td>
+          <td class="pad-text">Return data about a genre (description) by name</td>
+          <td class="pad-text"><code>/genres/<span class="param">:Name</span></code></td>
+          <td class="pad-text center"><code class="http-method"><span class="get">GET</span></code></td>
+          <td class="pad-text italic center">None</td>
+          <td>
+            <pre>
+              <code>
+                <span class="bracket">{</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"_id"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Title"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Description"</span><span class="operator">:</span>&nbsp;<span class="string">String</span>
+                <span class="bracket">}</span>
+              </code>
+            </pre>
+          </td>
+        </tr>
+        <!-- DIRECTORS -->
+        <tr>
+          <td class="pad-text">Return data about all directors</td>
+          <td class="pad-text"><code>/directors</code></td>
+          <td class="pad-text center"><code class="http-method"><span class="get">GET</span></code></td>
+          <td class="pad-text italic center">None</td>
+          <td>
+            <pre>
+              <code>
+                <span class="bracket">[</span>
+                  &nbsp;&nbsp;&nbsp;<span class="bracket">{</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"_id"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"Name"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"Bio"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string key">"DOB"</span><span class="operator">:</span>&nbsp;<span class="date">Date</span>
+                  &nbsp;&nbsp;&nbsp;<span class="bracket">}</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="comma">...</span>
+                <span class="bracket">]</span>
+              </code>
+            </pre>
+          </td>
         </tr>
         <tr>
-          <td>Return data about a director (bio, birth year, death year) by name</td>
-          <td>/movies/directors/<span class="param">:directorName</span></td>
-          <td><span class="get">GET</span></td>
-          <td>None</td>
-          <td>A JSON object holding data about the director</td>
+          <td class="pad-text">Return data about a director (bio, birth year, death year) by name</td>
+          <td class="pad-text"><code>/directors/<span class="param">:Name</span></code></td>
+          <td class="pad-text center"><code class="http-method"><span class="get">GET</span></code></td>
+          <td class="pad-text italic center">None</td>
+          <td>
+            <pre>
+              <code>
+                <span class="bracket">{</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"_id"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Title"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Bio"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"DOB"</span><span class="operator">:</span>&nbsp;<span class="date">Date</span>
+                <span class="bracket">}</span>
+              </code>
+            </pre>
+          </td>
+        </tr>
+        <!-- USERS -->
+        <tr>
+          <td class="pad-text">Allow new users to register</td>
+          <td class="pad-text"><code>/users</code></td>
+          <td class="pad-text center"><code class="http-method"><span class="get">GET</span></code></td>
+          <td class="pad-text">
+            <pre>
+              <code>
+                <span class="bracket">{</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"FirstName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>&nbsp;&nbsp;<span class="required italic">required</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"LastName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>&nbsp;&nbsp;<span class="required italic">required</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"UserName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>&nbsp;&nbsp;<span class="required italic">required</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Password"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>&nbsp;&nbsp;<span class="required italic">required</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Email"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>&nbsp;&nbsp;<span class="required italic">required</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"DOB"</span><span class="operator">:</span>&nbsp;<span class="date">Date</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"FavoriteMovies"</span><span class="operator">:</span>&nbsp;<span class="arr"><span class="bracket">[</span>&nbsp;<span class="ref-id">Reference ID</span>&nbsp;<span class="bracket">]</span></span>
+                <span class="bracket">}</span>
+              </code>
+            </pre>
+          </td>
+          <td>
+            <pre>
+              <code>
+                <span class="bracket">{</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"FirstName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"LastName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"UserName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Password"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Email"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"DOB"</span><span class="operator">:</span>&nbsp;<span class="date">Date</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"FavoriteMovies"</span><span class="operator">:</span>&nbsp;<span class="arr"><span class="bracket">[</span>&nbsp;<span class="ref-id">Reference ID</span>&nbsp;<span class="bracket">]</span></span>
+                <span class="bracket">}</span>
+              </code>
+            </pre>
+          </td>
         </tr>
         <tr>
-          <td>Allow new users to register</td>
-          <td>/users</td>
-          <td><span class="post">GET</span></td>
-          <td>A JSON object request from the client</td>
-          <td>A JSON object of the new user</td>
+          <td class="pad-text">Allow users to update their user info</td>
+          <td class="pad-text"><code>/users/<span class="param">:UserName</span></code></td>
+          <td class="pad-text center"><code class="http-method"><span class="put">PUT</span></code></td>
+          <td class="pad-text">
+            <pre>
+              <code>
+                <span class="bracket">{</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"UserName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Password"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Email"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"DOB"</span><span class="operator">:</span>&nbsp;<span class="date">Date</span>
+                <span class="bracket">}</span>
+              </code>
+            </pre>
+          </td>
+          <td>
+            <pre>
+              <code>
+                <span class="bracket">{</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"UserName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Password"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Email"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"DOB"</span><span class="operator">:</span>&nbsp;<span class="date">Date</span>
+                <span class="bracket">}</span>
+              </code>
+            </pre>
+          </td>
         </tr>
         <tr>
-          <td>Allow users to update their user info (username)</td>
-          <td>/users/<span class="param">:id</span></td>
-          <td><span class="put">PUT</span></td>
-          <td>A JSON object with updated values for a user</td>
-          <td>A JSON object of the updated user</td>
+          <td class="pad-text">Allow users to add a movie to their list of favorites</td>
+          <td class="pad-text"><code>/users/<span class="param">:UserName</span>/movies/<span class="param">:MovieID</span></code></td>
+          <td class="pad-text center"><code class="http-method"><span class="post">POST</span></code></td>
+          <td class="pad-text">
+            <pre>
+              <code>
+                <span class="bracket">{</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"FirstName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"LastName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"UserName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Password"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Email"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"DOB"</span><span class="operator">:</span>&nbsp;<span class="date">Date</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"FavoriteMovies"</span><span class="operator">:</span>&nbsp;<span class="arr"><span class="bracket">[</span>&nbsp;<span class="ref-id">Reference ID</span>&nbsp;<span class="bracket">]</span></span>
+                <span class="bracket">}</span>
+              </code>
+            </pre>
+          </td>
+          <td class="pad-text italic center">A message that the movie has been added</td>
         </tr>
         <tr>
-          <td>Allow users to add a movie to their list of favorites</td>
-          <td>/users/<span class="param">:id</span>/<span class="param">:movieTitle</span></td>
-          <td><span class="post">POST</span></td>
-          <td>A JSON object of a user and the movie they want added to their favorites</td>
-          <td>A message that the movie has been successfully added</td>
+          <td class="pad-text">Allow users to remove a movie from their list of favorites</td>
+          <td class="pad-text"><code>/users/<span class="param">:UserName</span>/movies/<span class="param">:MovieID</span></code></td>
+          <td class="pad-text center"><code class="http-method"><span class="delete">DELETE</span></code></td>
+          <td class="pad-text">
+            <pre>
+              <code>
+                <span class="bracket">{</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"FirstName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"LastName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"UserName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Password"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Email"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"DOB"</span><span class="operator">:</span>&nbsp;<span class="date">Date</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"FavoriteMovies"</span><span class="operator">:</span>&nbsp;<span class="arr"><span class="bracket">[</span>&nbsp;<span class="ref-id">Reference ID</span>&nbsp;<span class="bracket">]</span></span>
+                <span class="bracket">}</span>
+              </code>
+            </pre>
+          </td>
+          <td class="pad-text italic center">A message that the movie has been removed</td>
         </tr>
         <tr>
-          <td>Allow users to remove a movie from their list of favorites</td>
-          <td>/users/<span class="param">:id</span>/<span class="param">:movieTitle</span></td>
-          <td><span class="delete">DELETE</span></td>
-          <td>A JSON object of a user and the movie they want to remove from their favorites</td>
-          <td>A message that the movie has been successfully removed</td>
-        </tr>
-        <tr>
-          <td>Allow users to deregister</td>
-          <td>/users/<span class="param">:id</span></td>
-          <td><span class="delete">DELETE</span></td>
-          <td>A JSON object of a user by that includes their id</td>
-          <td>A message that the user has been successfully deleted</td>
+          <td class="pad-text">Allow users to deregister</td>
+          <td class="pad-text"><code>/users/<span class="param">:UserName</span></code></td>
+          <td class="pad-text center"><code class="http-method"><span class="delete">DELETE</span></code></td>
+          <td class="pad-text">
+            <pre>
+              <code>
+                <span class="bracket">{</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"FirstName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"LastName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"UserName"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Password"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"Email"</span><span class="operator">:</span>&nbsp;<span class="string">String</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"DOB"</span><span class="operator">:</span>&nbsp;<span class="date">Date</span><span class="comma">,</span>
+                  &nbsp;&nbsp;&nbsp;<span class="string key">"FavoriteMovies"</span><span class="operator">:</span>&nbsp;<span class="arr"><span class="bracket">[</span>&nbsp;<span class="ref-id">Reference ID</span>&nbsp;<span class="bracket">]</span></span>
+                <span class="bracket">}</span>
+              </code>
+            </pre>
+          </td>
+          <td class="pad-text italic center">A message that the user has been deleted</td>
         </tr>
       </tbody>
     </table>

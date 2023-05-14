@@ -1,0 +1,76 @@
+/* TABLE */
+table {
+  border-collapse: collapse;
+}
+
+/* TABLE ROWS */
+tbody tr:nth-child(odd) {
+  background-color: #ccc;
+}
+
+/* TABLE DATA */
+tbody tr td:first-child {
+  max-width: 200px;
+}
+.pad-text {
+  padding-left: 1.2rem;
+}
+.italic {
+  font-style: italic;
+}
+.center {
+  text-align: center;
+}
+
+/* HTTP METHODS */
+.http-method {
+  font-weight: bold;
+}
+.get {
+  color: green;
+}
+.put {
+  color: blue;
+}
+.post {
+  color: rgb(255, 162, 0);
+}
+.delete {
+  color: crimson;
+}
+
+/* URLS & PARAMS */
+.param {
+  color: magenta;
+}
+
+/* CODE BLOCKS */
+pre {
+  white-space: pre-line;
+  background-color: #292d3e;
+  padding: 1rem;
+  margin: 0;
+  /* border-radius: .5rem; */
+}
+.bracket,
+.comma {
+  color: #c792ea;
+}
+.string {
+  color: #c3e88d;
+}
+.date {
+  color: #75bfff;
+}
+.operator {
+  color: #89ddff;
+}
+.ref-id {
+  color: cyan;
+}
+.bool {
+  color: #ed8208;
+}
+.required {
+  color: rgb(255, 88, 88);
+}

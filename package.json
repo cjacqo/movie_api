@@ -4,13 +4,15 @@
   "description": "A REST API for movies",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
+    "mongoose": "^7.1.1",
     "morgan": "^1.10.0",
     "uuid": "^9.0.0"
   },

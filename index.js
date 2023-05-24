@@ -55,16 +55,17 @@ app.get('/users/:UserName', passport.authenticate('jwt', { session: false }), (r
 // CREATE - Mongoose
 // - a user
 app.post('/users', (req, res) => {
+  let hashedPassword = Users.hash Password(req.body.Password)
   Users.findOne({ UserName: req.body.UserName })
     .then(user => {
       if (user) {
-        return res.status(400).send(req.body.UserName + 'already exists')
+        return res.status(400).send(req.body.UserName + ' already exists')
       } else {
         Users.create({
           FirstName: req.body.FirstName,
           LastName: req.body.LastName,
           UserName: req.body.UserName,
-          Password: req.body.Password,
+          Password: hashedPassword,
           Email: req.body.Email,
           DOB: req.body.DOB
         })

@@ -42,6 +42,7 @@ app.get('/users', (req, res) => {
 // READ - Mongoose
 // - user by username
 app.get('/users/:UserName', passport.authenticate('jwt', { session: false }), (req, res) => {
+  console.log("Fuck")
   Users.findOne({ UserName: req.params.UserName })
     .then(user => {
       res.status(200).json(user)
@@ -55,7 +56,7 @@ app.get('/users/:UserName', passport.authenticate('jwt', { session: false }), (r
 // CREATE - Mongoose
 // - a user
 app.post('/users', (req, res) => {
-  let hashedPassword = Users.hash Password(req.body.Password)
+  let hashedPassword = Users.hashPassword(req.body.Password)
   Users.findOne({ UserName: req.body.UserName })
     .then(user => {
       if (user) {

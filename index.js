@@ -289,7 +289,7 @@ app.get('/directors/:Name', passport.authenticate('jwt', { session: false }), (r
 
 // READ
 app.get('/documentation', (req, res) => {
-  res.sendFile('documentation.html')
+  res.sendFile('documentation.html', { root: __dirname })
 })
 
 app.use((err, req, res, next) => {

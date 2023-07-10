@@ -237,7 +237,7 @@ app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req
 
 // READ - Mongoose
 // - all genres
-app.get('/genres', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/genres', (req, res) => {
   Genres.find()
     .then(genres => {
       res.status(200).json(genres)
@@ -250,7 +250,7 @@ app.get('/genres', passport.authenticate('jwt', { session: false }), (req, res) 
 
 // READ - Mongoose
 // - genre by name
-app.get('/genres/:Name', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/genres/:Name', (req, res) => {
   Genres.findOne({ Name: req.params.Name })
     .then(genre => {
       res.status(200).json(genre)
@@ -263,7 +263,7 @@ app.get('/genres/:Name', passport.authenticate('jwt', { session: false }), (req,
 
 // READ - Mongoose
 // - all directors
-app.get('/directors', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/directors', (req, res) => {
   Directors.find()
     .then(directors => {
       res.status(200).json(directors)
@@ -276,7 +276,7 @@ app.get('/directors', passport.authenticate('jwt', { session: false }), (req, re
 
 // READ - Mongoose
 // - director by name
-app.get('/directors/:Name', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/directors/:Name', (req, res) => {
   Directors.findOne({ Name: req.params.Name })
     .then(director => {
       res.status(200).json(director)

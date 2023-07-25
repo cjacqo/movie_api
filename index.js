@@ -82,7 +82,7 @@ app.post('/users',
   [
     check('UserName', 'Username is required').isLength({ min: 5 }),
     check('UserName', 'Username contains non alphanumeric characters - not allowed').isAlphanumeric(),
-    check('Password', 'Password must be between 8 and 20 characters').isLength({ min: 5, max: 20 }),
+    check('Password', 'Password must be between 8 and 20 characters').isLength({ min: 8, max: 20 }),
     check('Password', 'Password is required').not().isEmpty(),
     check('Email', 'Email does not appear to be valid').isEmail()
   ],

@@ -142,10 +142,12 @@ app.put('/users/:UserName',
       return res.status(422).json({ errors: errors.array() })
     }
 
+    let hashedPassword = Users.hashPassword(req.body.Password)
+
     Users.findOneAndUpdate({ UserName: req.params.UserName },
     {
       UserName: req.body.UserName,
-      Password: req.body.Password,
+      Password: hashedPassword,
       Email: req.body.Email,
       DOB: req.body.DOB
     },

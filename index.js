@@ -153,7 +153,7 @@ app.put('/users/:UserName',
     },
     { new: true }) // make sure that the updated document is retured
     .then(user => {
-      res.status(200).send(`Successfully updated ${user.UserName}`)
+      res.status(200).json(user)
     })
     .catch(err => {
       console.error(err)

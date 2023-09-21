@@ -20,7 +20,6 @@ const express = require("express"),
 app.use(morgan("common"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }))
 
 const cors = require("cors");
 let allowedOrigins = [
@@ -28,6 +27,7 @@ let allowedOrigins = [
  "http://localhost:1234",
  "https://list-o-movies.netlify.app",
  "http://localhost:4200",
+ "https://cjacqo.github.io/my-flix-angular/"
 ];
 app.use(
  cors({

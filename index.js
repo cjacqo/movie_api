@@ -210,7 +210,7 @@ app.post(
    { new: true }
   )
    .then((user) => {
-    res.status(200).send("New movie has been added to favorites");
+    res.status(200).json(user.FavoriteMovies);
    })
    .catch((err) => {
     console.error(err);

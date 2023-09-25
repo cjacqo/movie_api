@@ -5,6 +5,11 @@ const jwt = require('jsonwebtoken'),
 
 require('./passport.js')
 
+/**
+ * Generate a JSON Web Token
+ * @param {object} user 
+ * @returns JSON Web Token
+ */
 let generateJWTToken = user => {
   return jwt.sign(user, jwtSecret, {
     subject: user.UserName,   // The username you're encoding in the JWT

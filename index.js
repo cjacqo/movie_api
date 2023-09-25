@@ -59,7 +59,7 @@ app.get("/", (req, res) => {
 });
 
 /**
- * GET: Route for all users
+ * Route for all users
  * @return JSON of users
  */
 app.get("/users", (req, res) => {
@@ -74,7 +74,7 @@ app.get("/users", (req, res) => {
 });
 
 /**
- * GET: Single user by username.
+ * Single user by username.
  * @return JSON of a single user
  */
 app.get(
@@ -94,7 +94,7 @@ app.get(
 );
 
 /**
- * POST: Create a user
+ * Create a user
  * @param {string} FirstName - Firstname of user
  * @param {string} LastName - Lastname of user
  * @param {string} UserName - Username of user: min length of 5 and has to be alphanumeric

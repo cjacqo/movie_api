@@ -5,7 +5,6 @@ const Genres = Models.Genre;
 const Directors = Models.Director;
 const Users = Models.User;
 
-// mongoose.connect('mongodb://localhost:27017/moviesapiDB', { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.connect(process.env.CONNECTION_URI, {
  useNewUrlParser: true,
  useUnifiedTopology: true,
@@ -44,7 +43,6 @@ app.use(
   },
  })
 );
-// app.use(cors())
 
 let auth = require("./auth.js")(app);
 const passport = require("passport");
@@ -52,12 +50,18 @@ require("./passport.js");
 
 const { check, validationResult } = require("express-validator");
 
+/**
+ * Loads the home page of the API
+ * @return String
+ */
 app.get("/", (req, res) => {
  res.send("Welcome to my API for movies!");
 });
 
-// READ - Mongoose
-// - all users
+/**
+ * GET: Route for all users
+ * @return JSON of users
+ */
 app.get("/users", (req, res) => {
  Users.find()
   .then((users) => {
@@ -69,8 +73,10 @@ app.get("/users", (req, res) => {
   });
 });
 
-// READ - Mongoose
-// - user by username
+/**
+ * GET: Single user by username.
+ * @return JSON of a single user
+ */
 app.get(
  "/users/:UserName",
  passport.authenticate("jwt", { session: false }),
@@ -87,15 +93,17 @@ app.get(
  }
 );
 
-// CREATE - Mongoose
-// - a user
+/**
+ * POST: Create a user
+ * @param {string} FirstName - Firstname of user
+ * @param {string} LastName - Lastname of user
+ * @param {string} UserName - Username of user: min length of 5 and has to be alphanumeric
+ * @param {string} Password - Password of user: min length of 8 and max length of 20
+ * @param {string} Email - Email of user: must be in valid email format
+ * @return JSON of newly created user
+ */
 app.post(
  "/users",
- // Validation logic here for request
- // you can either use a chain of methods like .not().isEmpty()
- // which means "opposite of isEmpty" in plain english "is not empty"
- // or use .isLength({ min: 5 }) which means
- // minimum value of 5 characters are only allowed
  [
   check("UserName", "Username is required").isLength({ min: 5 }),
   check(

@@ -75,13 +75,14 @@ app.get("/users", (req, res) => {
 
 /**
  * Single user by username.
+ * @param {string} UserName
+ * @description Must be authenticated with JWT
  * @return JSON of a single user
  */
 app.get(
  "/users/:UserName",
  passport.authenticate("jwt", { session: false }),
  (req, res) => {
-  console.log("Fuck");
   Users.findOne({ UserName: req.params.UserName })
    .then((user) => {
     res.status(200).json(user);
@@ -155,8 +156,10 @@ app.post(
  }
 );
 
-// UPDATE - Mongoos
-// - user by username
+/**
+ * Update a user by username
+ * @param {string} UserName
+ */
 app.put(
  "/users/:UserName",
  passport.authenticate("jwt", { session: false }),
@@ -204,8 +207,11 @@ app.put(
  }
 );
 
-// UPDATE - Mongoose
-// - add a movie to user's list of favorites
+/**
+ * Add a movie to a user's favorite list of movies
+ * @param {string} UserName
+ * @param {string} MovieID
+ */
 app.post(
  "/users/:UserName/movies/:MovieID",
  passport.authenticate("jwt", { session: false }),
@@ -227,8 +233,11 @@ app.post(
  }
 );
 
-// DELETE - Mongoose
-// - remove a movie from a user's list of favorites
+/**
+ * Remove a movie from a user's favorite list of movies
+ * @param {string} UserName
+ * @param {string} MovieID
+ */
 app.delete(
  "/users/:UserName/movies/:MovieID",
  passport.authenticate("jwt", { session: false }),
@@ -250,8 +259,10 @@ app.delete(
  }
 );
 
-// DELETE - Mongoose
-// - remove a user by username
+/**
+ * Delete a user by username
+ * @param {string} UserName
+ */
 app.delete(
  "/users/:UserName",
  passport.authenticate("jwt", { session: false }),
@@ -271,8 +282,10 @@ app.delete(
  }
 );
 
-// READ - Mongoose
-// - all movies
+/**
+ * Get all movies
+ * @description Must be authenticated with JWT
+ */
 app.get(
  "/movies",
  passport.authenticate("jwt", { session: false }),
@@ -288,8 +301,11 @@ app.get(
  }
 );
 
-// READ - Mongoose
-// - movies by title
+/**
+ * Get a movie by title
+ * @param {string} Title
+ * @description Must be authenticated with JWT
+ */
 app.get(
  "/movies/:Title",
  passport.authenticate("jwt", { session: false }),
@@ -305,8 +321,9 @@ app.get(
  }
 );
 
-// READ - Mongoose
-// - all genres
+/**
+ * Get all genres
+ */
 app.get("/genres", (req, res) => {
  Genres.find()
   .then((genres) => {
@@ -318,8 +335,10 @@ app.get("/genres", (req, res) => {
   });
 });
 
-// READ - Mongoose
-// - genre by name
+/**
+ * Get a genre by name
+ * @param {string} Name
+ */
 app.get("/genres/:Name", (req, res) => {
  Genres.findOne({ Name: req.params.Name })
   .then((genre) => {
@@ -331,8 +350,9 @@ app.get("/genres/:Name", (req, res) => {
   });
 });
 
-// READ - Mongoose
-// - all directors
+/**
+ * Get all directors
+ */
 app.get("/directors", (req, res) => {
  Directors.find()
   .then((directors) => {
@@ -344,8 +364,10 @@ app.get("/directors", (req, res) => {
   });
 });
 
-// READ - Mongoose
-// - director by name
+/**
+ * Get a director by name
+ * @param {string} Name
+ */
 app.get("/directors/:Name", (req, res) => {
  Directors.findOne({ Name: req.params.Name })
   .then((director) => {
@@ -357,7 +379,9 @@ app.get("/directors/:Name", (req, res) => {
   });
 });
 
-// READ
+/**
+ * Link to documentation of API
+ */
 app.get("/documentation", (req, res) => {
  res.sendFile("/documentation.html");
 });
@@ -372,7 +396,3 @@ const port = process.env.PORT || 8080;
 app.listen(port, "0.0.0.0", () => {
  console.log("Listening on Port: " + port);
 });
-
-// app.listen(8080, () => {
-//   console.log('App is running on port 8080')
-// })

@@ -274,7 +274,15 @@ app.put(
  * Authentication: Bearer token (JWT)
  * @example
  * Request data format
- * 
+ * {
+ *   "UserName": "",
+ *   "MovieID": ObjectID
+ * }
+ * @example
+ * Response data format
+ * {
+ *   "FavoriteMovies": [ObjectID]
+ * }
  */
 app.post(
  "/users/:UserName/movies/:MovieID",
@@ -298,9 +306,21 @@ app.post(
 );
 
 /**
- * Remove a movie from a user's favorite list of movies
- * @param {string} UserName
- * @param {string} MovieID
+ * @description Remove a movie from a user's favorite list of movies
+ * @name DELETE /users/:UserName/movie/:MovieID
+ * @example
+ * Authentication: Bearer token (JWT)
+ * @example
+ * Request data format
+ * {
+ *   "UserName": "",
+ *   "MovieID": ObjectID
+ * }
+ * @example
+ * Response data format
+ * {
+ *   "FavoriteMovies": [ObjectID]
+ * }
  */
 app.delete(
  "/users/:UserName/movies/:MovieID",
@@ -324,8 +344,18 @@ app.delete(
 );
 
 /**
- * Delete a user by username
- * @param {string} UserName
+ * @description Delete a user by username
+ * @name DELETE /users/:UserName
+ * @example
+ * Authentication: Bearer token (JWT)
+ * @example
+ * Request data format
+ * {
+ *   "UserName": ""
+ * }
+ * @example
+ * Response data format
+ * none
  */
 app.delete(
  "/users/:UserName",
@@ -421,7 +451,22 @@ app.get(
 );
 
 /**
- * Get all genres
+ * @description Get all genres
+ * @name GET /genres
+ * @example
+ * Authentication: none
+ * @example
+ * Request data format
+ * none
+ * @example
+ * Request data format
+ * [
+ *   {
+ *     "_id": ObjectID,
+ *     "Name": "",
+ *     "Description": ""
+ *   }
+ * ]
  */
 app.get("/genres", (req, res) => {
  Genres.find()
@@ -435,8 +480,22 @@ app.get("/genres", (req, res) => {
 });
 
 /**
- * Get a genre by name
- * @param {string} Name
+ * @description Get a genre by name
+ * @name GET /genres/:Name
+ * @example
+ * Authentication: none
+ * @example
+ * Request data format
+ * {
+ *   "Name": ""
+ * }
+ * @example
+ * Response data format
+ * {
+ *   "_id": ObjectID,
+ *   "Name": "",
+ *   "Description": ""
+ * }
  */
 app.get("/genres/:Name", (req, res) => {
  Genres.findOne({ Name: req.params.Name })
@@ -450,7 +509,23 @@ app.get("/genres/:Name", (req, res) => {
 });
 
 /**
- * Get all directors
+ * @description Get all directors
+ * @name GET /directors
+ * @example
+ * Authentication: none
+ * @example
+ * Request data format
+ * none
+ * @example
+ * Response data format
+ * [
+ *  {
+ *     "_id": ObjectID,
+ *     "Name": "",
+ *     "Bio": "",
+ *     "DOB": Date
+ *  } 
+ * ]
  */
 app.get("/directors", (req, res) => {
  Directors.find()
@@ -464,8 +539,23 @@ app.get("/directors", (req, res) => {
 });
 
 /**
- * Get a director by name
- * @param {string} Name
+ * @description Get a director by name
+ * @name GET /directors/:Name
+ * @example
+ * Authentication: none
+ * @example
+ * Request data format
+ * {
+ *   "Name": ""
+ * }
+ * @example
+ * Response data format
+ * {
+ *   "_id": ObjectID,
+ *   "Name": "",
+ *   "Bio": "",
+ *   "DOB": Date
+ * }
  */
 app.get("/directors/:Name", (req, res) => {
  Directors.findOne({ Name: req.params.Name })
